@@ -1,8 +1,16 @@
+import { useState } from 'react';
+
 function App() {
+  const [counter, setCounter] = useState(0);
 
   return (
     <div>
-      JMPC
+      <button
+        onClick={() => {
+          setCounter((prev) => prev + 1);
+        }}>Counter
+      </button>
+      {counter}
     </div>
   )
 }
