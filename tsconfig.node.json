@@ -7,7 +7,8 @@
     "allowSyntheticDefaultImports": true,
 
     /* Custom */
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "allowJs": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "postcss.config.js", "tailwind.config.js"]
 }
