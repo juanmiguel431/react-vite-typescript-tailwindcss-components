@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
+    '@typescript-eslint/no-unused-vars': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/consistent-type-definitions': ['type' | 'interface'],
     '@typescript-eslint/prefer-nullish-coalescing': 'error',
