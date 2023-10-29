@@ -14,7 +14,7 @@ function App() {
       </button>
       {counter}
       <Button>Plain</Button>
-      <Button primary>
+      <Button primary onClick={() => alert('Hello there')}>
           <GoBell />
           Click Me!
       </Button>

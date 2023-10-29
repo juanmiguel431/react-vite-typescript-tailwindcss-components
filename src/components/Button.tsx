@@ -1,9 +1,11 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import className from 'classnames';
+import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';
 
-type ButtonProps = PropsWithChildren & {
+type classicBtnProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+
+type ButtonProps = classicBtnProps & {
   rounded?: boolean;
   outline?: boolean;
 }
@@ -17,9 +19,9 @@ type ButtonProps = PropsWithChildren & {
 
 const Button: React.FC<ButtonProps> = (
   { children, primary, secondary, success, warning, danger,
-    rounded, outline }) => {
+    rounded, outline, className, ...rest }) => {
 
-  const classes = twMerge(className('flex items-center px-3 py-1.5 border [&>svg]:mr-1', {
+  const classes = twMerge(classNames('flex items-center px-3 py-1.5 border [&>svg]:mr-1', className, {
     'border-blue-600 bg-blue-500 text-white': primary,
     'border-gray-900 bg-gray-800 text-white': secondary,
     'border-green-600 bg-green-500 text-white': success,
@@ -36,7 +38,9 @@ const Button: React.FC<ButtonProps> = (
 
   return (
     <button
-      className={classes}>
+      className={classes}
+      {...rest}
+    >
       {children}
     </button>
   );
