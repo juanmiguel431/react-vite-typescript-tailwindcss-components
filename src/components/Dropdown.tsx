@@ -38,14 +38,17 @@ const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange }) => {
       onClick={() => {
         setExpanded(prev => !prev);
       }}>
-      {expanded ? options.map(option => {
+      <div>
+        {value?.label ?? 'Select...'}
+      </div>
+      {expanded && options.map(option => {
         return (
           <div
             key={option.value}
             onClick={() => onChange(option)}
           >{option.label}</div>
         );
-      }) : (value?.label ?? 'Select...')}
+      })}
     </div>
   );
 };
