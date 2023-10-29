@@ -20,7 +20,9 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
               setSelectedIndex((prev) => prev === index ? -1 : index);
             }}>
               {item.title}
-              {expanded ? <GoChevronDown/> : <GoChevronLeft/>}
+              <span className="text-2xl">
+                {expanded ? <GoChevronDown/> : <GoChevronLeft/>}
+              </span>
             </div>
             {expanded &&
               <div className="border-b p-5">
