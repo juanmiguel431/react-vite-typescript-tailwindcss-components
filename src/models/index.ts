@@ -5,3 +5,8 @@ export type Section = {
   title: string;
   content: string;
 };
+
+export type Option = {
+  value: string;
+  label: string;
+};
