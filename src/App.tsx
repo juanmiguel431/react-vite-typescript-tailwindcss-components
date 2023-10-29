@@ -12,12 +12,11 @@ function App() {
         }}>Counter
       </button>
       {counter}
-      <Button primary>Hi there</Button>
-      <Button success>Hi there</Button>
-      <Button warning>Hi there</Button>
-      <Button danger>Hi there</Button>
-      <Button outline>Hi there</Button>
-      <Button rounded>Hi there</Button>
+      <Button primary>Click Me!</Button>
+      <Button success>Buy Now!</Button>
+      <Button warning>See Deal!</Button>
+      <Button danger>Hide Ads!</Button>
+      <Button outline>Something!</Button>
     </div>
   )
 }

@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
+    '@typescript-eslint/consistent-type-definitions': ['type' | 'interface'],
     '@typescript-eslint/prefer-nullish-coalescing': 'error',
     'react-refresh/only-export-components': [
       'warn',
