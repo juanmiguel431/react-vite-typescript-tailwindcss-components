@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './components/Button.tsx';
+import { GoBell, GoDownload, GoDatabase } from 'react-icons/go';
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -13,23 +14,50 @@ function App() {
       </button>
       {counter}
       <Button>Plain</Button>
-      <Button primary>Click Me!</Button>
-      <Button secondary>Secondary!</Button>
-      <Button success>Buy Now!</Button>
+      <Button primary>
+          <GoBell />
+          Click Me!
+      </Button>
+      <Button secondary>
+          <GoDownload />
+          Secondary!
+      </Button>
+      <Button success>
+          <GoDatabase />
+          Buy Now!
+      </Button>
       <Button warning>See Deal!</Button>
       <Button danger>Hide Ads!</Button>
       <hr/>
       <Button rounded>Plain</Button>
-      <Button primary rounded>Click Me!</Button>
-      <Button secondary rounded>Secondary!</Button>
-      <Button success rounded>Buy Now!</Button>
+      <Button primary rounded>
+          <GoBell />
+          Click Me!
+      </Button>
+      <Button secondary rounded>
+          <GoDownload />
+          Secondary!
+      </Button>
+      <Button success rounded>
+          <GoDatabase />
+          Buy Now!
+      </Button>
       <Button warning rounded>See Deal!</Button>
       <Button danger rounded>Hide Ads!</Button>
       <hr/>
       <Button outline>Plain</Button>
-      <Button primary outline>Click Me!</Button>
-      <Button secondary outline>Secondary!</Button>
-      <Button success outline>Buy Now!</Button>
+      <Button primary outline>
+          <GoBell />
+          Click Me!
+      </Button>
+      <Button secondary outline>
+          <GoDownload />
+          Secondary!
+      </Button>
+      <Button success outline>
+          <GoDatabase />
+          Buy Now!
+      </Button>
       <Button warning outline>See Deal!</Button>
       <Button danger outline>Hide Ads!</Button>
       <hr/>
