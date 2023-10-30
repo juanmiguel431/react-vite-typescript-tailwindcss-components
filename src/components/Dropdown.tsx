@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Option } from '../models';
 import { GoChevronDown } from 'react-icons/go'
+import Panel from './Panel.tsx';
 
 type DropdownProps = {
   options: Option[];
@@ -40,13 +41,13 @@ const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange }) => {
       onClick={() => {
         setExpanded(prev => !prev);
       }}>
-      <div
-        className="flex justify-between items-center cursor-pointer border rounded p-3 shadow bg-white w-full">
+      <Panel
+        className="flex justify-between items-center cursor-pointer">
         {value?.label ?? 'Select...'}
         <GoChevronDown className="text-xl"/>
-      </div>
+      </Panel>
       {expanded &&
-        <div className="absolute top-full border rounded p-3 shadow bg-white w-full">
+        <Panel className="absolute top-full">
           {options.map(option => {
             return (
               <div
@@ -56,7 +57,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange }) => {
               >{option.label}</div>
             );
           })}
-        </div>
+        </Panel>
       }
     </div>
   );
