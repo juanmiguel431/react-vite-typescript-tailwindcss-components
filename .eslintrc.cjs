@@ -19,6 +19,8 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/consistent-type-definitions': ['type' | 'interface'],
