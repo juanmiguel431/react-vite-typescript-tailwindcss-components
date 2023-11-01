@@ -7,6 +7,7 @@ const Sidebar: React.FC = () => {
     { label: 'Dropdown', path: '/dropdown' },
     { label: 'Accordion', path: '/accordion' },
     { label: 'Buttons', path: '/buttons' },
+    { label: 'Modal', path: '/modal' },
   ];
 
   const { currentPath } = useNavigation();

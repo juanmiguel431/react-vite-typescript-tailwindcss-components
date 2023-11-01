@@ -3,6 +3,7 @@ import AccordionPage from './pages/AccordionPage.tsx';
 import DropdownPage from './pages/DropdownPage.tsx';
 import Route from './components/navigation/Route.tsx';
 import Sidebar from './components/Sidebar.tsx';
+import ModalPage from './pages/ModalPage.tsx';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/dropdown" component={DropdownPage}/>
         <Route path="/accordion" component={AccordionPage}/>
         <Route path="/buttons" component={ButtonPage}/>
+        <Route path="/modal" component={ModalPage}/>
       </div>
     </div>
   )
