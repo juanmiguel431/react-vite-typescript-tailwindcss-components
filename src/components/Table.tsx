@@ -1,31 +1,39 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { BsArrowUpSquare, BsArrowDownSquare, BsArrowUpSquareFill, BsArrowDownSquareFill } from 'react-icons/bs';
 import { SortOrder, TableProps } from '../models';
+import useSort from '../hooks/useSort.ts';
+
+const getIcons = (column: string | null, currentColumn: string | null, sortOrder: SortOrder) => {
+  if (sortOrder === null || column !== currentColumn) {
+    return (
+      <div>
+        <BsArrowUpSquare />
+        <BsArrowDownSquare />
+      </div>
+    );
+  }
+
+  if (sortOrder === 'ASC') {
+    return (
+      <div>
+        <BsArrowUpSquareFill />
+        <BsArrowDownSquare />
+      </div>
+    );
+  }
+
+  if (sortOrder === 'DESC') {
+    return (
+      <div>
+        <BsArrowUpSquare />
+        <BsArrowDownSquareFill />
+      </div>
+    );
+  }
+};
 
 const Table = <T, >({ keyExtractor, columns, dataSource }: TableProps<T>) => {
-  const [sortColumn, setSortColumn] = useState<string | null>(null);
-  const [sortOrder, setSortOrder] = useState<SortOrder>(null);
-
-  const handleSort = useCallback( (newColumn: string, currentColumn: string | null, currentOrder: string | null) => {
-    if (currentColumn !== newColumn) {
-      setSortColumn(newColumn);
-      setSortOrder('ASC');
-      return;
-    }
-
-    switch (currentOrder) {
-      case 'ASC':
-        setSortOrder('DESC');
-        break;
-      case 'DESC':
-        setSortOrder(null);
-        break;
-      default:
-        setSortOrder('ASC');
-        break;
-    }
-
-  }, []);
+  const { sortColumn, sortOrder, handleSort } = useSort();
 
   let data: T[];
 
@@ -49,36 +57,6 @@ const Table = <T, >({ keyExtractor, columns, dataSource }: TableProps<T>) => {
   } else {
     data = dataSource;
   }
-
-  const getIcons = useCallback((column: string | null, currentColumn: string | null, sortOrder: SortOrder) => {
-    if (sortOrder === null || column !== currentColumn) {
-      return (
-        <div>
-          <BsArrowUpSquare />
-          <BsArrowDownSquare />
-        </div>
-      );
-    }
-
-    if (sortOrder === 'ASC') {
-      return (
-        <div>
-          <BsArrowUpSquareFill />
-          <BsArrowDownSquare />
-        </div>
-      );
-    }
-
-    if (sortOrder === 'DESC') {
-      return (
-        <div>
-          <BsArrowUpSquare />
-          <BsArrowDownSquareFill />
-        </div>
-      );
-    }
-
-  }, []);
 
   return (
     <table className="table-auto border-spacing-2">
