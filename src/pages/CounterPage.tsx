@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../components/Button.tsx';
+import useCounter from '../hooks/useCounter.ts';
 
 type CounterPageProps = {}
 
 const CounterPage: React.FC<CounterPageProps> = () => {
-  const [counter, setCounter] = useState(0);
+  const { counter, increment } = useCounter(10);
 
   return (
     <div>
       <Button
         primary
-        onClick={() => setCounter(prev => prev + 1)}
+        onClick={increment}
       >Increment</Button>
 
       {counter}
