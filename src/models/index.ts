@@ -14,6 +14,7 @@ export type Option = {
 export type TableColumn<T> = {
   title: string;
   render: (item: T) => React.ReactNode;
+  renderHeader?: () => React.ReactNode;
 }
 
 export type TableProps<T> = {

@@ -1,4 +1,4 @@
-import React, { Key } from 'react';
+import React from 'react';
 import { TableProps } from '../models';
 
 const Table = <T, >({ keyExtractor, columns, dataSource }: TableProps<T>) => {
@@ -7,7 +7,9 @@ const Table = <T, >({ keyExtractor, columns, dataSource }: TableProps<T>) => {
       <thead>
       <tr className="border-b-2">
         {columns.map(c => (
-          <th className="p-3" key={c.title}>{c.title}</th>
+          <th className="p-3" key={c.title}>
+            {c.renderHeader ? c.renderHeader() : c.title}
+          </th>
         ))}
       </tr>
       </thead>
