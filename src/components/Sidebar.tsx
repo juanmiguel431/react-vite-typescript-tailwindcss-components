@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from './navigation/Link.tsx';
-import useNavigation from '../hooks/useNavigation.ts';
 
 const Sidebar: React.FC = () => {
   const links = [
@@ -12,10 +11,8 @@ const Sidebar: React.FC = () => {
     { label: 'Counter', path: '/counter' },
   ];
 
-  const { currentPath } = useNavigation();
-
   return (
-    <div className="sticky top-0 overflow-hidden overflow-y-scroll flex flex-col items-start">
+    <div className="sticky top-0 flex flex-col items-start">
       {links.map(l => {
         return (
           <Link
