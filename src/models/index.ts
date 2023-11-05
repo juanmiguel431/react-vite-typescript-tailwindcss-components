@@ -12,9 +12,10 @@ export type Option = {
 };
 
 export type TableColumn<T> = {
-  title: string;
+  name: string;
   render: (item: T) => React.ReactNode;
   renderHeader?: () => React.ReactNode;
+  sort?: (item: T) => string | number;
 }
 
 export type TableProps<T> = {
@@ -22,3 +23,5 @@ export type TableProps<T> = {
   dataSource: T[];
   keyExtractor: (item: T) => React.Key;
 }
+
+export type SortOrder = 'ASC' | 'DESC' | null;

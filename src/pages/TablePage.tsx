@@ -23,16 +23,22 @@ const TablePage: React.FC<TablePageProps> = () => {
   const columns = useMemo((): TableColumn<Data>[] => {
     return [
       {
-        title: 'Name',
-        render: (item) => item.name
+        name: 'Name',
+        render: (item) => item.name,
+        sort: (item) => item.name,
       },
       {
-        title: 'Color',
+        name: 'Color',
         render: (item) => <div className={`p-3 m-2 ${item.color}`}></div>
       },
       {
-        title: 'Score',
-        render: (item) => item.score
+        name: 'Score',
+        render: (item) => item.score,
+        sort: (item) => item.score,
+      },
+      {
+        name: 'Squared Score',
+        render: (item) => item.score ** 2,
       }
     ];
   }, []);
