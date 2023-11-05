@@ -4,6 +4,7 @@ import DropdownPage from './pages/DropdownPage.tsx';
 import Route from './components/navigation/Route.tsx';
 import Sidebar from './components/Sidebar.tsx';
 import ModalPage from './pages/ModalPage.tsx';
+import CounterPage from './pages/CounterPage.tsx';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/accordion" component={AccordionPage}/>
         <Route path="/buttons" component={ButtonPage}/>
         <Route path="/modal" component={ModalPage}/>
+        <Route path="/counter" component={CounterPage}/>
       </div>
     </div>
   )
