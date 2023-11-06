@@ -9,6 +9,7 @@ const Sidebar: React.FC = () => {
     { label: 'Modal', path: '/modal' },
     { label: 'Table', path: '/table' },
     { label: 'Counter', path: '/counter' },
+    { label: 'Counter Reducer', path: '/counter-reducer' },
   ];
 
   return (

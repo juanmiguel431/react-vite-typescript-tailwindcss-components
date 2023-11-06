@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar.tsx';
 import ModalPage from './pages/ModalPage.tsx';
 import CounterPage from './pages/CounterPage.tsx';
 import TablePage from './pages/TablePage.tsx';
+import CounterReducerPage from './pages/CounterReducerPage.tsx';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/modal" component={ModalPage}/>
         <Route path="/table" component={TablePage}/>
         <Route path="/counter" component={CounterPage}/>
+        <Route path="/counter-reducer" component={CounterReducerPage}/>
       </div>
     </div>
   )
