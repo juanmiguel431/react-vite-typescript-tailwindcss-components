@@ -1,14 +1,14 @@
 import React, { Reducer, useReducer } from 'react';
-import { Draft, produce } from 'immer';
+import { Draft, Immutable, produce } from 'immer';
 import Button from '../components/Button.tsx';
 import Panel from '../components/Panel.tsx';
 
 type CounterPageProps = {}
 
-type State = {
+type State = Immutable<{
   counter: number;
   valueToAdd: number | null;
-}
+}>
 
 const initialState: State = {
   counter: 10,
