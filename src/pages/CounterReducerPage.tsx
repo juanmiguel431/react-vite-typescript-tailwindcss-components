@@ -1,4 +1,5 @@
 import React, { Reducer, useReducer } from 'react';
+import { Draft, produce } from 'immer';
 import Button from '../components/Button.tsx';
 import Panel from '../components/Panel.tsx';
 
@@ -40,23 +41,26 @@ type DecrementAction = {
 
 type Action = IncrementAction | DecrementAction | SetValueToAddAction | SetValueToAddToCountAction;
 
-const reducer: Reducer<State, Action> = (state, action) => {
+const reducer = (state: Draft<State>, action: Action) => {
   switch (action.type) {
     case ActionType.Increment:
-      return { ...state, counter: state.counter + 1 };
+      state.counter += 1;
+      break;
     case ActionType.Decrement:
-      return { ...state, counter: state.counter - 1 };
+      state.counter -= 1;
+      break;
     case ActionType.SetValueToAdd:
-      return { ...state, valueToAdd: action.payload };
+      state.valueToAdd = action.payload;
+      break;
     case ActionType.SetValueToAddToCount:
-      return { ...state, counter: state.valueToAdd ?? 0, valueToAdd: null };
-    default:
-      return state;
+      state.counter = state.valueToAdd ?? 0;
+      state.valueToAdd = null;
+      break;
   }
 }
 
 const CounterReducerPage: React.FC<CounterPageProps> = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(produce(reducer), initialState);
   const { counter, valueToAdd } = state;
   return (
     <div>
