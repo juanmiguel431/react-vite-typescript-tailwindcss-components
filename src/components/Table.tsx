@@ -33,30 +33,7 @@ const getIcons = (column: string | null, currentColumn: string | null, sortOrder
 };
 
 const Table = <T, >({ keyExtractor, columns, dataSource }: TableProps<T>) => {
-  const { sortColumn, sortOrder, handleSort } = useSort();
-
-  let data: T[];
-
-  if (sortColumn) {
-    const sortFc = columns.find(p => p.name === sortColumn)?.sort;
-    if (!sortFc) {
-      data = dataSource;
-    } else {
-      const invertedOrder = sortOrder === 'DESC' ? -1 : 1;
-      data = [...dataSource].sort((a, b) => {
-        const valueA = sortFc(a);
-        const valueB = sortFc(b);
-
-        if (typeof valueA === 'string') {
-          return valueA.localeCompare(valueB as string) * invertedOrder;
-        }
-
-        return (valueA - (valueB as number)) * invertedOrder;
-      });
-    }
-  } else {
-    data = dataSource;
-  }
+  const { sortColumn, sortOrder, handleSort, data } = useSort(dataSource, columns);
 
   return (
     <table className="table-auto border-spacing-2">
