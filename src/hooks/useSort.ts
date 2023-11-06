@@ -5,7 +5,7 @@ const useSort = () => {
   const [sortColumn, setSortColumn] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<SortOrder>(null);
 
-  const handleSort = useCallback( (newColumn: string, currentColumn: string | null, currentOrder: string | null) => {
+  const sort = useCallback( (newColumn: string, currentColumn: string | null, currentOrder: string | null) => {
     if (currentColumn !== newColumn) {
       setSortColumn(newColumn);
       setSortOrder('ASC');
@@ -25,6 +25,10 @@ const useSort = () => {
     }
 
   }, []);
+
+  const handleSort = useCallback((column: string) => {
+    sort(column, sortColumn, sortOrder);
+  }, [sortColumn, sortOrder, sort]);
 
   return {
     sortColumn, sortOrder, handleSort

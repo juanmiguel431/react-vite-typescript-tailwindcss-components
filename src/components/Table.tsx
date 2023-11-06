@@ -70,7 +70,7 @@ const Table = <T, >({ keyExtractor, columns, dataSource }: TableProps<T>) => {
               <th
                 className="p-3 cursor-pointer"
                 key={c.name}
-                onClick={() => handleSort(c.name, sortColumn, sortOrder)}
+                onClick={() => handleSort(c.name)}
               >
                 <div className="flex items-center">
                   {getIcons(c.name, sortColumn, sortOrder)}
